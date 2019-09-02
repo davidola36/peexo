@@ -25,6 +25,14 @@
     &__month {
         font-weight: 400;
         font-size: 1.8rem;
+    } 
+
+    &__icon {
+        height: 1rem;
+
+        &:first-child {
+            margin-right: .5rem;
+        }
     }
 
     &__day {
@@ -51,7 +59,6 @@
         grid-template-rows: 4rem repeat(5, 10rem);
     }
 
-
     &__item {
         border: 1px solid var(--color-grey);
         border-radius: 2px;
@@ -65,142 +72,274 @@
 
         &-1 {
             @include center;
+            grid-column: 1 / 2;
+            grid-row: 2 / 3;
         }
 
         &-2 {
             @include center;
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
         }
 
         &-3 {
             @include center;
+            grid-column: 3 / 4;
+            grid-row: 2 / 3;
         }
 
         &-4 {
             @include center;
+            grid-column: 4 / 5;
+            grid-row: 2 / 3;
         }
 
         &-5 {
             @include center;
+            grid-column: 5 / 6;
+            grid-row: 2 / 3;
         }
 
         &-6 {
             @include center;
+            grid-column: 6 / 7;
+            grid-row: 2 / 3;
         }
 
         &-7 {
             @include center; 
+            grid-column: 7 /  7;
+            grid-row: 2 / 3;
         }
 
         &-8 {
             @include center; 
+            grid-column: 1 / 2;
+            grid-row: 3 / 4;
+
         }
 
         &-9 {
             @include center; 
+            grid-column: 2 / 3;
+            grid-row: 3 / 4;
+
         }
 
         &-10 {
             @include center;
+            grid-column: 3 / 4;
+            grid-row: 3 / 4;
+
         }
 
         &-11 {
             @include center;
+            grid-column: 4 / 5;
+            grid-row: 3 / 4;
+
         }
 
         &-12 {
-            @include center;   
+            @include center;  
+            grid-column: 5 / 6;
+            grid-row: 3 / 4;
+ 
         }
 
         &-13 {
             @include center;
+            grid-column: 6 / 7;
+            grid-row: 3 / 4;
+
         }
 
         &-14 {
             @include center;
+            grid-column: 7 /  7;
+            grid-row: 3 / 4;
+
         }
 
         &-15 {
             @include center;
+            grid-column: 1 / 2;
+            grid-row: 4 / 5;
+
         }
 
         &-16 {
             @include center;
+            grid-column: 2 / 3;
+            grid-row: 4 / 5;
+
         }
 
         &-17 {
             @include center;
+            grid-column: 3 / 4;
+            grid-row: 4 / 5;
+
         }
 
         &-18 {
             @include center;
+            grid-column: 4 / 5;
+            grid-row: 4 / 5;
+
         }
 
         &-19 {
             @include center;
+            grid-column: 5 / 6;
+            grid-row: 4 / 5;
+
         }
 
         &-20 {
             @include center;
+            grid-column: 6 / 7;
+            grid-row: 4 / 5;
+
         }
 
         &-21 {
             @include center;
+            grid-column: 7 /  7;
+            grid-row: 4 / 5;
+
         }
 
         &-22 {
             @include center;
+            grid-column: 1 /  2;
+            grid-row: 5 / 6;
+
         }
 
         &-23 {
             @include center;
+            grid-column: 2 / 3;
+            grid-row: 5 / 6;
+
+
         }
 
         &-24 {
             @include center;
+            grid-column: 3 / 4;
+            grid-row: 5 / 6;
+
+
         }
 
         &-25 {
             @include center;
+            grid-column: 4 / 5;
+            grid-row: 5 / 6;
+
+
         }
 
         &-26 {
             @include center;
+            grid-column: 5 / 6;
+            grid-row: 5 / 6;
+
+
         }
 
         &-27 {
             @include center;
+            grid-column: 6 / 7;
+            grid-row: 5 / 6;
+
+
         }
 
         &-28 {
             @include center;
+            grid-column: 7 / 7;
+            grid-row: 5 / 6;
+
+
         }
 
         &-29 {
             @include center;
+            grid-column: 1 / 2;
+            grid-row:  6 / 7;
+
+
         }
         &-30 {
             @include center;
+            grid-column: 2 / 3;
+            grid-row:  6 / 7;
+
+
         }
 
         &-31 {
             @include center;
+            grid-column: 3 / 4;
+            grid-row:  6 / 7;
+
+
         }
 
         &-32 {
             @include center;
+            grid-column: 4 / 5;
+            grid-row:  6 / 7;
+
+
         }
 
         &-33 {
             @include center;
+            grid-column: 5 / 6;
+            grid-row:  6 / 7;
+
+
         }
 
         &-34 {
             @include center;
+            grid-column: 6 / 7;
+            grid-row:  6 / 7;
+
+
         }
 
         &-35 {
             @include center;
+            grid-column: 7 / 7;
+            grid-row:  6 / 7;
         }
+    }
+
+    &__item-occupied {
+        text-align: center;
+        background-color: var(--color-primary-3);
+        padding: 1rem;
+        display: block;
+    }
+
+    &-content {
+        padding: 1rem;
+        background-color: var(--color-primary);
+        // text-align: left;
+        color: #ffffff;
+    }
+
+    &-span__3{
+        grid-column: 4 / span 3;
+    }
+
+    &-span__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr)
     }
 }
 
@@ -355,7 +494,7 @@
     box-shadow: 0 1px 4px rgba( #CCCCCC, .5);
     font-weight: 500;
     font-size: 1.4rem;
-    color: val(--color-dark-grey);
+    color: var(--color-dark-grey);
 
     @media only screen and (max-width:$bp-smallest) {
         font-size: 1.2rem;
