@@ -49,15 +49,15 @@
 ////////////////////////////////////////////////CALENDER
 .calender {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(7, minmax(14.3%, max-content));
     grid-gap: 2px;
     margin-top: 2rem;
-    grid-template-rows: 5rem repeat(5, 12.5rem);
+    grid-template-rows: 5rem repeat(5, minmax(12.5rem, max-content));
     margin-bottom: 20rem; 
 
-    @media only screen and (max-width:$bp-small) {
-        grid-template-rows: 4rem repeat(5, 10rem);
-    }
+    // @media only screen and (max-width:$bp-small) {
+    //     grid-template-rows: 4rem repeat(5, 10rem);
+    // }
 
     &__item {
         border: 1px solid var(--color-grey);
@@ -514,6 +514,10 @@
         margin-right: 3rem;
         cursor: pointer;
         transition: all 1s;
+
+        @media only screen and (max-width:$bp-large) {
+            display: none; // 1rem == s8px
+        }
 
         @media only screen and (max-width:$bp-small) {
             margin-right: 1.5rem; 
