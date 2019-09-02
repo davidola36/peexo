@@ -515,7 +515,7 @@
         cursor: pointer;
         transition: all 1s;
 
-        @media only screen and (max-width:$bp-large) {
+        @media only screen and (max-width:$bp-smallest) {
             display: none; // 1rem == s8px
         }
 
