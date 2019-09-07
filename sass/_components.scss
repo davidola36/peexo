@@ -11,6 +11,14 @@
     margin-top: 3rem;
 }
 
+///////////////////////transitions
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+}
+
 
 ////////////////////////////////////date-panel
 .date-panel {
@@ -29,9 +37,12 @@
 
     &__icon {
         height: 1rem;
+        cursor: pointer;
+        padding: .5rem;
+        box-sizing: content-box;
 
         &:first-child {
-            margin-right: .5rem;
+            margin-right: .5rem; 
         }
     }
 
@@ -45,6 +56,47 @@
     }
 }
 
+
+/////////////////////////////////////////// calender list view
+.calender-list {
+    margin-top: 3rem;
+
+
+    &__item {
+        padding: 1rem;
+        font-size: 1.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #ffffff;
+        
+        &:not(:last-child) {
+            margin-bottom: .5rem;
+        }
+    }
+
+    &__date {
+        flex: 0 0 15%;
+    }
+
+    &__text {
+        flex: 0 0 45%;
+        padding-right: 1rem;
+        cursor: pointer; 
+    }
+
+    &__type {
+        flex: 0 0 20%;
+    }
+
+    &__delete {
+        height: 1.5rem;
+        width: 1.5rem;
+        cursor: pointer;
+        flex: 0 0 auto;
+        filter: var(--filter--primary-2);
+    }
+}
 
 ////////////////////////////////////////////////CALENDER
 .calender {
@@ -348,7 +400,7 @@
     font-size: 2.4rem;
     font-weight: 500;
     font-family: 'Lora', serif;
-    margin-bottom: 1.8rem;
+    margin-bottom: 2rem;
     color: var(--color-tetiary);
 }
 
@@ -363,6 +415,12 @@
     > div {
         display: flex;
         align-items: center;
+    }
+
+    &-view {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
     }
 
     @media only screen and (max-width:$bp-small) {
@@ -647,3 +705,280 @@
     font-size: 1.2rem;
 }
 
+////////////////////////////////////////////////////////////// modal
+.modal {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    
+
+    &-backdrop {
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba($color: #000000, $alpha: .5);
+        // z-index: 5;
+    }
+
+    &-content {
+        padding: 6rem;
+        background-color: var(--color-secondary-light);
+        display: inline-block;
+        position: absolute;
+        left: 50%;
+        top: 10rem;
+        transform: translateX(-50%);
+        width: 60rem;
+        border-radius: 5px;
+
+        @media only screen and (max-width:$bp-smallest) {
+            width: 30rem;
+            padding: 2rem;
+        }
+    }
+
+    &-textInput {
+        width: 100%;
+        display: inline-block;
+        background-color: #FFFEFC;
+        border: 1px solid #D4D4D4;
+        border-radius: 5px;
+        padding: 1.2rem 1rem;
+        font-size: 1.4rem;
+        font-style: inherit;
+        margin-bottom: 2rem;
+    }
+
+    &-dateInput {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: .5rem;
+
+        &__start{
+            width: 47%;
+            background-color: #FFFEFC;
+            border: 1px solid #D4D4D4;
+            border-radius: 5px;
+            padding: 1.2rem 1rem;
+            font-size: 1.4rem;
+        }
+    }
+
+    &-btn {
+        &__cont {
+            text-align: center;
+        }
+
+       &__one{
+            width: 15rem;
+            padding: 1rem 0;
+            font-size: 1.4rem;
+            color: var(--color-primary);
+            border: 1px solid var(--color-primary);
+            border-radius: .5rem;
+            margin-right: 1rem;
+            display: inline-block;
+            cursor: pointer;
+            @media only screen and (max-width:$bp-smallest) {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+       }
+
+       &__two {
+            width: 15rem;
+            padding: 1rem 0;
+            font-size: 1.4rem;
+            color: #fff;
+            background-color: var(--color-primary);
+            border-radius: .5rem;
+            margin-right: .5rem;
+            @media only screen and (max-width:$bp-smallest) {
+                display: block;
+                margin: 0 auto;
+            }
+       }
+
+    }
+}
+
+.done-modal {
+    text-align: center;
+    font-size: 1.4rem;
+
+    &__icon {
+        height: 4rem;
+        margin-bottom: 2rem;
+    }
+
+    &__button {
+        color: #FFFFFF;
+        background-color: var(--color-primary);
+        width: 15rem;
+        padding: 1rem 0;
+        border-radius: .5rem;
+    }
+
+}
+
+.delete-modal {
+
+    &__text {
+        padding: 0 10rem;
+        text-align: center;
+        font-size: 1.4rem;
+        @media only screen and (max-width:$bp-smallest) {
+            padding: 0 4rem;
+        }
+    }
+}
+
+/* The container */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 3rem;
+    cursor: pointer;
+    font-size: 1.4rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    height: 2rem;
+    width: 2rem;
+    background-color: #FFFEFC;
+    border: 1px solid #D4D4D4; 
+    border-radius: .3rem;
+
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: .7rem;
+    top: .5rem;
+    width: .5rem;
+    height: .7rem;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  .event {
+      &-card {
+          padding: 3rem 3rem 3.4rem 3rem;
+          background-color: #FFFFFF;
+      }
+
+      &-date {
+        font-weight: 500;
+        font-size: 1.8rem;
+        display: inline-block;
+      }
+
+      &-text {
+        font-size: 1.4rem;
+        margin-bottom: 4rem;
+        font-weight: 400;
+      }
+
+      &-type {
+          display: inline-block;
+          padding: .5rem;
+          color: #FFFFFF;
+          background-color: var(--color-tetiary);
+          border: 1px solid #979797;
+          border-radius: 2px;
+      }
+
+      &-back {
+        display: flex;
+        align-items: center;
+        color: var(--color-primary);
+        font-size: 1.4rem;
+        cursor: pointer;
+        text-transform: capitalize;
+        margin-bottom: 2rem;
+
+        &__img {
+        display: inline-block;
+        height: 1.6rem;
+        margin-right: .6rem;
+        transition: transform .5s ease-out;
+        }
+
+        &:hover &__img {
+            transform: translateX(-1rem);
+        }
+
+      }
+
+      &-edit {
+          display: inline-block;
+          font-size: 1.4rem;
+          cursor: pointer;
+          &__icon {
+              height: 1.5rem;
+              display: inline-block;
+              margin-right: .5rem;
+          }
+
+          &__text {
+            margin-right: 1rem;
+          }
+      }
+
+  }
+
+  
+  ///////////////////////////////////over writing defaul calender styles
+
+  .v-calendar-weekly__head-weekday {
+      padding: 1.5rem;
+      border-bottom: 1px solid #e0e0e0;
+  }
+
+  .v-btn__content {
+      color: var(--color-tetiary-light) ;
+  }

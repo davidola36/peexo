@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
+  <v-app id="app">
     <HelloWorld/>
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -10,7 +10,7 @@ import HelloWorld from './components/HelloWorld.vue'
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    HelloWorld,
   }
 }
 </script>
